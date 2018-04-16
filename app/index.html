@@ -4,10 +4,75 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Flavors">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rationale">
     <title>Matching Game</title>
   </head>
   <body>
-
+    <header>
+      <h2>Matching Game</h2>
+      <div class="grid-game-container">
+        <div id="game_time">0 m 0 s</div>
+        <div id="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div id="moves">0 Moves</div>
+        <div class="grid-restart" ><button id="restart-button" onclick="restartGame()">Restart</button></div>
+      </div>
+    </header>
+    <div class="flex-board-container">
+      <div class="card">
+        <div class="card_a">?</div>
+      </div>
+      <div class="card">
+        <div class="card_b">?</div>
+      </div>
+      <div class="card">
+        <div class="card_c">?</div>
+      </div>
+      <div class="card">
+        <div class="card_d">?</div>
+      </div>
+      <div class="card">
+        <div class="card_e">?</div>
+      </div>
+      <div class="card">
+        <div class="card_f">?</div>
+      </div>
+      <div class="card">
+        <div class="card_g">?</div>
+      </div>
+      <div class="card">
+        <div class="card_h">?</div>
+      </div>
+      <div class="card">
+        <div class="card_i">?</div>
+      </div>
+      <div class="card">
+        <div class="card_j">?</div>
+      </div>
+      <div class="card">
+        <div class="card_k">?</div>
+      </div>
+      <div class="card">
+        <div class="card_l">?</div>
+      </div>
+      <div class="card">
+        <div class="card_m">?</div>
+      </div>
+      <div class="card">
+        <div class="card_n">?</div>
+      </div>
+      <div class="card">
+        <div class="card_o">?</div>
+      </div>
+      <div class="card">
+        <div class="card_p">?</div>
+      </div>
+    </div>
+    <div id="game_over_dialog" title="Congratulations! You Won!">
+      <p><span id="total-moves"></span><span id="total-stars"></span></p>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>
