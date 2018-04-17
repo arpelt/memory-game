@@ -56,7 +56,7 @@ function shuffle(array) {
 }
 
 
-// Add a click-based event listener for all cards that are not matched cards 
+// Add a click-based event listener for all cards that are not matched cards
 // When the player clicks card, cardClick function is executed.
 function cardEventListener() {
   let deckCards = document.querySelectorAll(".card:not(.match)");
@@ -125,15 +125,15 @@ function checkMatch() {
   if (selectedCards[0] === selectedCards[1]) {
     openCards[0].classList.add("match");
     openCards[1].classList.add("match");
-	pairCount++;
-	if (pairCount === cardValues.length/2) {
-	  stopTimer();
-	  gameOver();
-	}
+    pairCount++;
+    if (pairCount === cardValues.length/2) {
+      stopTimer();
+      gameOver();
+    }
   }
-  else {		
+  else {
     openCards[0].children[0].textContent = "?";
-    openCards[1].children[0].textContent = "?";	
+    openCards[1].children[0].textContent = "?";
   }
   openCards[0].classList.remove("open");
   openCards[1].classList.remove("open");
@@ -148,7 +148,7 @@ function timeCount() {
   gameTimeSec++;
   if (gameTimeSec % 60 === 0) {
     gameTimeMin++;
-	gameTimeSec = 0;
+    gameTimeSec = 0;
   }
    document.getElementById("game_time").textContent = gameTimeMin + " m " + gameTimeSec + " s";
 }
@@ -180,10 +180,10 @@ function starRate() {
   }
   else if ((totalMoves <= 16) && (gameTimeSec <= 33) && (gameTimeMin == 0)) {
     document.getElementById("stars").textContent =  "\u2605\u2605\u2605\u2606\u2606";
-    finalStars = 3;	
+    finalStars = 3;
   }
   else if ((totalMoves <= 20) && (gameTimeSec <= 39) && (gameTimeMin == 0)) {
-    document.getElementById("stars").textContent =  "\u2605\u2605\u2606\u2606\u2606"; 
+    document.getElementById("stars").textContent =  "\u2605\u2605\u2606\u2606\u2606";
     finalStars = 2;
   }
   else {
@@ -206,9 +206,9 @@ function removeClickListener(){
 function resetGame(){
   let card = document.querySelectorAll(".card");
   for (let i = 0; i < card.length; i++) {
-	card[i].classList.remove("match"); 
-    card[i].classList.remove("open"); 	
-	card[i].children[0].textContent = "?";
+    card[i].classList.remove("match");
+    card[i].classList.remove("open");
+    card[i].children[0].textContent = "?";
   }
   document.getElementById("game_time").textContent = gameTimeMin + " m " + gameTimeSec + " s";
   document.getElementById("stars").textContent =  "\u2605\u2605\u2605\u2605\u2605";
@@ -217,22 +217,18 @@ function resetGame(){
 
 
 // The game ends when the player wins (all of the cards are matched).
-// Sets the HTML content for congratulatory dialog and displays dialog. 
+// Sets the HTML content for congratulatory dialog and displays dialog.
 function gameOver() {
-  document.getElementById("total-moves").textContent = "With " +totalMoves + " moves ";
-  if (finalStars > 1) {
-    document.getElementById("total-stars").textContent = "and " + finalStars + " Stars";
-  }
-  else {
-    document.getElementById("total-stars").textContent = "and " + finalStars + " Star";
-  }
+  document.getElementById("total-time").textContent = "Time: " + gameTimeMin + ":" + gameTimeSec;
+  document.getElementById("total-moves").textContent = "Moves: " +totalMoves;
+  document.getElementById("total-stars").textContent = "Stars: " + finalStars;
   $("#game_over_dialog").dialog("open");
 }
 
 
 // jQuery congratulatory dialog.
 $(document).ready(function() {
-  $( "#game_over_dialog" ).dialog({
+  $("#game_over_dialog").dialog({
     autoOpen: false,
     show: {
       effect: "blind",
@@ -242,15 +238,15 @@ $(document).ready(function() {
       effect: "explode",
       duration: 4000
     },
-	width: 270,
-	height: 250,
-	buttons: {
+    width: 270,
+    height: 250,
+    buttons: {
       "Close": function() {
-        $( this ).dialog( "close" );
+        $( this ).dialog("close");
       },
-	  "Play Again": function() {
-        $( this ).dialog( "close" );
-		restartGame();
+      "Play Again": function() {
+        $( this ).dialog("close");
+        restartGame();
       }
     }
     });
@@ -258,7 +254,6 @@ $(document).ready(function() {
 
 
 //Initializes variables and restart the game.
- 
 function restartGame() {
   $("#game_over_dialog").dialog("close");
   stopTimer();
